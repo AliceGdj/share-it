@@ -11,43 +11,40 @@ export default function TabThreeScreen() {
   const [comment, setComment] = useState('');
 
   return (
-      <ThemedView style={styles.stepContainer}>    
-        <ThemedText type="title">Add a recommendation</ThemedText>
-          <TextInput
-          style={styles.input}
-          placeholder="Enter name"
-          value={name}
-          onChangeText={setName}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Enter category"
-          value={category}
-          onChangeText={setCategory}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Enter platform"
-          value={platform}
-          onChangeText={setPlatform}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Enter rating"
-          value={rating}
-          onChangeText={setRating}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Enter comment"
-          value={comment}
-          onChangeText={setComment}
-        />
-        <Button 
-          title="Save recommendation" 
-          onPress={() => Alert.alert('Button pressed')}
-        />
-      </ThemedView>
+    <ThemedView style={styles.stepContainer}>
+      <ThemedText type="title">Add a recommendation</ThemedText>
+      <TextInput
+        style={styles.input}
+        placeholder="Enter name"
+        value={name}
+        onChangeText={setName}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter category"
+        value={category}
+        onChangeText={setCategory}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter platform"
+        value={platform}
+        onChangeText={setPlatform}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter rating"
+        value={rating}
+        onChangeText={setRating}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Enter comment"
+        value={comment}
+        onChangeText={setComment}
+      />
+      <Button title="Save recommendation" onPress={() => Alert.alert('Button pressed')} />
+    </ThemedView>
   );
 }
 

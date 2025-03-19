@@ -5,25 +5,20 @@ import { users } from '@/components/__mockData__/users';
 
 export default function TabTwoScreen() {
   return (
-      <ThemedView style={styles.stepContainer}>
-        <TextInput
-          onChangeText={(search) => console.log("...search happening")}
-          style={styles.searchBar}
-          placeholder="Search..."
+    <ThemedView style={styles.stepContainer}>
+      <TextInput
+        onChangeText={(search) => console.log('...search happening')}
+        style={styles.searchBar}
+        placeholder="Search..."
+      />
+      <ThemedText type="title">Friends</ThemedText>
 
-        />
-        <ThemedText type="title">Friends</ThemedText>
-  
-      {users.map(user => [
+      {users.map((user) => [
         <>
-        <Image
-          source={require('@/assets/images/avatar.png')}
-          style={styles.avatar}
-        />
-        <ThemedText style={styles.name}>{user.name}</ThemedText></>
-      ])
-      
-    }
+          <Image source={require('@/assets/images/avatar.png')} style={styles.avatar} />
+          <ThemedText style={styles.name}>{user.name}</ThemedText>
+        </>,
+      ])}
     </ThemedView>
   );
 }
@@ -37,10 +32,10 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     backgroundColor: '#E0E0E0',
-    borderRadius: 50, 
+    borderRadius: 50,
     fontSize: 16,
     width: '80%',
-    paddingStart: 20
+    paddingStart: 20,
   },
   avatar: {
     width: 75,

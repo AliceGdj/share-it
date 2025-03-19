@@ -2,9 +2,7 @@ import { StyleSheet } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 
 export function Hello() {
-  return (
-    <ThemedText style={styles.text}>👋</ThemedText>
-  );
+  return <ThemedText style={styles.text}>👋</ThemedText>;
 }
 
 const styles = StyleSheet.create({
