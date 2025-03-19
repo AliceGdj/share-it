@@ -1,74 +1,57 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { StyleSheet, FlatList, View, TextInput, Button, Alert } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { Collapsible } from '@/components/Collapsible';
+import { Hello } from '@/components/Hello';
+import { data } from '@/components/__mockData__/data';
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+      <ThemedView style={styles.stepContainer}>
+        <TextInput
+          onChangeText={(search) => console.log("...search happening")}
+          style={styles.searchBar}
+          placeholder="Search..."
+
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
+        <ThemedText type="title">Common shared list:</ThemedText>
+        <Hello />
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item.id}
+          nestedScrollEnabled={true}  // Allows inner FlatList to scroll TODO MAYBE CHANGE THAT (not recommended)
+          renderItem={({ item }) => (
+            <Collapsible title={`${item.name} (${item.recommendedBy})`}>
+              <View>
+                <ThemedText >Category: {item.category}</ThemedText>
+                <ThemedText >Platform: {item.platform}</ThemedText>
+                <ThemedText >Recommended by: {item.recommendedBy}</ThemedText>
+                <ThemedText >Rating: {item.rating}</ThemedText>
+                <ThemedText >Comment: {item.comment}{'\n'}{'\n'}</ThemedText>
+              </View>
+            </Collapsible>
+          )}
+        />
+        <Button
+          title="Collapse all"
+          onPress={() => Alert.alert('Button pressed')}
+        />      
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
+export const styles = StyleSheet.create({
   stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+    paddingTop: 100,
+    height: '100%',
+    alignItems: 'center',
+    gap: 20,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
+  searchBar: {
+    backgroundColor: '#E0E0E0',
+    borderRadius: 50, 
+    fontSize: 16,
+    width: '80%',
+    paddingStart: 20
+  }
 });
