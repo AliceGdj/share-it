@@ -1,4 +1,4 @@
-import { StyleSheet, Image, TextInput } from 'react-native';
+import { StyleSheet, Image, TextInput, View } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { users } from '@/components/__mockData__/users';
@@ -14,10 +14,10 @@ export default function TabTwoScreen() {
       <ThemedText type="title">Friends</ThemedText>
 
       {users.map((user) => [
-        <>
+        <View key={user.id}>
           <Image source={require('@/assets/images/avatar.png')} style={styles.avatar} />
           <ThemedText style={styles.name}>{user.name}</ThemedText>
-        </>,
+        </View>,
       ])}
     </ThemedView>
   );
