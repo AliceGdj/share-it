@@ -1,4 +1,4 @@
-import { StyleSheet, FlatList, View, TextInput, Button, Alert } from 'react-native';
+import { StyleSheet, FlatList, View, TextInput } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Collapsible } from '@/components/Collapsible';
@@ -19,6 +19,7 @@ export default function HomeScreen() {
         data={data}
         keyExtractor={(item) => item.id}
         nestedScrollEnabled={true} // Allows inner FlatList to scroll TODO MAYBE CHANGE THAT (not recommended)
+        style={styles.flatList}
         renderItem={({ item }) => (
           <Collapsible title={`${item.name} (${item.recommendedBy})`}>
             <View>
@@ -35,7 +36,6 @@ export default function HomeScreen() {
           </Collapsible>
         )}
       />
-      <Button title="Collapse all" onPress={() => Alert.alert('Button pressed')} />
     </ThemedView>
   );
 }
@@ -54,4 +54,6 @@ export const styles = StyleSheet.create({
     width: '80%',
     paddingStart: 20,
   },
+  flatList: {
+    width: '80%',  }
 });
