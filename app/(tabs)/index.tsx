@@ -26,7 +26,7 @@ export default function HomeScreen() {
   const dataShown = search ? getSearchResults(search) : data;
 
   return (
-    <ThemedView style={styles.stepContainer}>
+    <ThemedView style={styles.mainContainer}>
       <TextInput
         onChangeText={(text) => setSearch(text)}
         style={styles.searchBar}
@@ -65,7 +65,7 @@ export default function HomeScreen() {
 }
 
 export const styles = StyleSheet.create({
-  stepContainer: {
+  mainContainer: {
     paddingTop: 100,
     height: '100%',
     alignItems: 'center',
@@ -76,6 +76,7 @@ export const styles = StyleSheet.create({
     borderRadius: 50,
     fontSize: 16,
     width: '80%',
+    minHeight: 40,
     paddingStart: 20,
   },
   flatList: {
