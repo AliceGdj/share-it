@@ -1,7 +1,15 @@
-import { StyleSheet, TextInput, Button, Alert } from 'react-native';
+import { StyleSheet, TextInput, Button } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useState } from 'react';
+
+type Recommendation = {
+  name: string;
+  category: string;
+  platform: string;
+  rating: string;
+  comment: string;
+};
 
 export default function TabThreeScreen() {
   const [name, setName] = useState('');
@@ -9,6 +17,11 @@ export default function TabThreeScreen() {
   const [platform, setPlatform] = useState('');
   const [rating, setRating] = useState('');
   const [comment, setComment] = useState('');
+
+  const handleAddRecommendation = (recommendation: Recommendation) => {
+    // TODO add logic to add a recommendation
+    console.log(`Added recommendation: ${recommendation.name}, Category: ${recommendation.category}, Platform: ${recommendation.platform}, Rating: ${recommendation.rating}, Comment: ${recommendation.comment}`);
+  };
 
   return (
     <ThemedView style={styles.stepContainer}>
@@ -21,19 +34,19 @@ export default function TabThreeScreen() {
       />
       <TextInput
         style={styles.input}
-        placeholder="Enter category"
+        placeholder="Enter category e.g. Movie, Book, Serie"
         value={category}
         onChangeText={setCategory}
       />
       <TextInput
         style={styles.input}
-        placeholder="Enter platform"
+        placeholder="Enter where to find it e.g. Netflix, Home, Kobo"
         value={platform}
         onChangeText={setPlatform}
       />
       <TextInput
         style={styles.input}
-        placeholder="Enter rating"
+        placeholder="Enter rating, 10 being the best"
         value={rating}
         onChangeText={setRating}
       />
@@ -43,7 +56,7 @@ export default function TabThreeScreen() {
         value={comment}
         onChangeText={setComment}
       />
-      <Button title="Save recommendation" onPress={() => Alert.alert('Button pressed')} />
+      <Button title="Save recommendation" onPress={() => handleAddRecommendation({name, category, platform, rating, comment})} />
     </ThemedView>
   );
 }
@@ -61,5 +74,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 10,
+    minHeight: 40,
   },
 });

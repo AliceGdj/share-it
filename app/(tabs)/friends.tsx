@@ -1,21 +1,31 @@
-import { StyleSheet, Image, TextInput, View, Alert, Button } from 'react-native';
+import { StyleSheet, Image, TextInput, View, Button } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { users } from '@/components/__mockData__/users';
+import { useState } from 'react';
 
 export default function TabTwoScreen() {
+  const [email, onChangeEmail] = useState('');
+
+  const handleAddFriend = (email: string) => {
+    // TODO add logic to invite a friend by email
+    console.log(`Added friend with email: ${email}`);
+  };
+  
   return (
     <ThemedView style={styles.mainContainer}>
+      <ThemedText type="title">Add a friend</ThemedText>
       <TextInput
-        onChangeText={(search) => console.log('...add friend happening')}
         style={styles.input}
+        onChangeText={onChangeEmail}
+        value={email}
         placeholder="Enter the email of your friend..."
       />
       <Button 
-        title="Add new friend" 
-        onPress={() => Alert.alert('Added :)')} 
+        title="Save new friend"
+        onPress={()=> handleAddFriend(email)}
       />
-      <ThemedText type="title">Friends already invited: </ThemedText>
+      <ThemedText type="subtitle">Friends already invited: </ThemedText>
       <View style={styles.rowContainer}>
         {users.map((user) => [
           <View key={user.id} style={styles.usersContainer}>
@@ -36,12 +46,12 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   input: {
-    backgroundColor: '#E0E0E0',
-    borderRadius: 50,
-    fontSize: 16,
     width: '80%',
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 10,
     minHeight: 40,
-    paddingStart: 20,
   },
   rowContainer: {
     flexDirection: 'row',
