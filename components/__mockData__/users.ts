@@ -2,8 +2,8 @@ export const users = [
   {
     id: 'Alice',
     name: 'Alice',
-    friends: ['Bernou'],
-    recommended: [
+    friends: ['Cha', 'Margot', 'Claire', 'Bernou'],
+    listRecommendations: [
       {
         id: '1',
         name: 'Singing in the rain',
@@ -12,6 +12,7 @@ export const users = [
         recommendedBy: 'Bernou',
         rating: '9/10',
         comment: 'Old school ',
+        isChecked: false,
       },
       {
         id: '2',
@@ -21,6 +22,7 @@ export const users = [
         recommendedBy: 'Alice',
         rating: '8/10',
         comment: 'This is amazing',
+        isChecked: true,
       },
       {
         id: '3',
@@ -30,16 +32,15 @@ export const users = [
         recommendedBy: 'Alice',
         rating: '10/10',
         comment: 'Recommend absolutely!!!',
+        isChecked: true,
       },
     ],
-    recoNotSeen: [],
   },
   {
     id: 'Cha',
     name: 'Cha',
-    friends: ['Alice'],
-    recommended: [],
-    recoNotSeen: [
+    friends: ['Alice', 'Margot', 'Claire', 'Bernou'],
+    listRecommendations: [
       {
         id: '1',
         name: 'Singing in the rain',
@@ -48,6 +49,7 @@ export const users = [
         recommendedBy: 'Bernou',
         rating: '9/10',
         comment: 'Old school ',
+        isChecked: false,
       },
       {
         id: '2',
@@ -57,6 +59,7 @@ export const users = [
         recommendedBy: 'Alice',
         rating: '8/10',
         comment: 'This is amazing',
+        isChecked: false,
       },
       {
         id: '3',
@@ -66,15 +69,15 @@ export const users = [
         recommendedBy: 'Alice',
         rating: '10/10',
         comment: 'Recommend absolutely!!!',
+        isChecked: false,
       },
     ],
   },
   {
     id: 'Margot',
     name: 'Margot',
-    friends: ['Alice'],
-    recommended: [],
-    recoNotSeen: [
+    friends: ['Alice', 'Cha', 'Claire', 'Bernou'],
+    listRecommendations: [
       {
         id: '1',
         name: 'Singing in the rain',
@@ -83,6 +86,7 @@ export const users = [
         recommendedBy: 'Bernou',
         rating: '9/10',
         comment: 'Old school ',
+        isChecked: false,
       },
       {
         id: '2',
@@ -92,6 +96,7 @@ export const users = [
         recommendedBy: 'Alice',
         rating: '8/10',
         comment: 'This is amazing',
+        isChecked: false,
       },
       {
         id: '3',
@@ -101,15 +106,15 @@ export const users = [
         recommendedBy: 'Alice',
         rating: '10/10',
         comment: 'Recommend absolutely!!!',
+        isChecked: false,
       },
     ],
   },
   {
     id: 'Claire',
     name: 'Claire',
-    friends: ['Alice'],
-    recommended: [],
-    recoNotSeen: [
+    friends: ['Alice', 'Cha', 'Margot', 'Bernou'],
+    listRecommendations: [
       {
         id: '1',
         name: 'Singing in the rain',
@@ -118,6 +123,7 @@ export const users = [
         recommendedBy: 'Bernou',
         rating: '9/10',
         comment: 'Old school ',
+        isChecked: false,
       },
       {
         id: '2',
@@ -127,6 +133,7 @@ export const users = [
         recommendedBy: 'Alice',
         rating: '8/10',
         comment: 'This is amazing',
+        isChecked: false,
       },
       {
         id: '3',
@@ -136,14 +143,15 @@ export const users = [
         recommendedBy: 'Alice',
         rating: '10/10',
         comment: 'Recommend absolutely!!!',
+        isChecked: false,
       },
     ],
   },
   {
     id: 'Bernou',
     name: 'Bernou',
-    friends: ['Alice'],
-    recommended: [
+    friends: ['Alice', 'Cha', 'Margot', 'Claire'],
+    listRecommendations: [
       {
         id: '1',
         name: 'Singing in the rain',
@@ -152,6 +160,7 @@ export const users = [
         recommendedBy: 'Bernou',
         rating: '9/10',
         comment: 'Old school ',
+        isChecked: true,
       },
       {
         id: '2',
@@ -161,9 +170,8 @@ export const users = [
         recommendedBy: 'Alice',
         rating: '8/10',
         comment: 'This is amazing',
+        isChecked: false,
       },
-    ],
-    recoNotSeen: [
       {
         id: '3',
         name: 'Nelson Mandela Biography',
@@ -172,6 +180,7 @@ export const users = [
         recommendedBy: 'Alice',
         rating: '10/10',
         comment: 'Recommend absolutely!!!',
+        isChecked: true,
       },
     ],
   },
